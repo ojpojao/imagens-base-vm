@@ -38,11 +38,13 @@ build {
     ansible_env_vars = [
       "ANSIBLE_PIPELINING=True",
       "ANSIBLE_REMOTE_TEMP=/tmp",
-      "ANSIBLE_HOST_KEY_CHECKING=False",
+      "ANSIBLE_HOST_KEY_CHECKING=True",
       "ANSIBLE_SSH_ARGS='-o ControlMaster=no -o ControlPersist=180s -o ServerAliveInterval=120s -o TCPKeepAlive=yes -o IdentitiesOnly=no'"
       
     ]
-    extra_arguments = [ "-vvvv" ]
-    ansible_ssh_extra_args = [ "IdentitiesOnly=no" ]
+//    extra_arguments = [ "-vvvv" ]
+//    ansible_ssh_extra_args = [ "IdentitiesOnly=no" ]
+    ssh_host_key_file = "./ansible/ssh/gencloud"
+    ssh_authorized_key_file = "./ansible/ssh/gencloud.pub"
   }
 }
