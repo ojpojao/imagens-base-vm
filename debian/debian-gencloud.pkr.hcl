@@ -35,14 +35,17 @@ build {
     galaxy_file      = "./ansible/requirements.yml"
     roles_path       = "./ansible/roles"
     collections_path = "./ansible/collections"
-    use_proxy = false
+    use_proxy = true
     ansible_env_vars = [
       "ANSIBLE_PIPELINING=True",
       "ANSIBLE_REMOTE_TEMP=/tmp",
-//      "ANSIBLE_HOST_KEY_CHECKING=False",
+      "ANSIBLE_HOST_KEY_CHECKING=False",
       "ANSIBLE_SSH_ARGS='-o ControlMaster=no -o ControlPersist=180s -o ServerAliveInterval=120s -o TCPKeepAlive=yes'"
       
     ]
     extra_arguments = [ "-vvv" ]
+    ansible_ssh_extra_args = [ "IdentitiesOnly=no" ]
+    ssh_host_key_file = "./ansible/ssh/gencloud.pub"
+    ssh_authorized_key_file = "./ansible/ssh/gencloud"
   }
 }
