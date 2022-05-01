@@ -43,9 +43,11 @@ build {
       "ANSIBLE_SSH_ARGS='-o ControlMaster=no -o ControlPersist=180s -o ServerAliveInterval=120s -o TCPKeepAlive=yes'"
       
     ]
-    extra_arguments = [ "-vvv" ]
+    extra_arguments = [
+      "-vvv",
+      "-e", "ansible_ssh_private_key_file=./ansible/ssh/gencloud"
+    ]
     ansible_ssh_extra_args = [ "IdentitiesOnly=no" ]
     ssh_host_key_file = "./ansible/ssh/gencloud.pub"
-    ssh_authorized_key_file = "./ansible/ssh/gencloud"
   }
 }
