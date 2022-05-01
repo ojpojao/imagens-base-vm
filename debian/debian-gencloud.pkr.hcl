@@ -45,7 +45,7 @@ build {
     ]
     extra_arguments = [ "-vvv" ]
     ansible_ssh_extra_args = [ "IdentitiesOnly=no" ]
-    ssh_host_key_file = "/root/ion-cloud-images/debian/ansible/ssh/gencloud.pub"
-    ssh_authorized_key_file = "/root/ion-cloud-images/debian//ansible/ssh/gencloud"
+    ssh_host_key_file = "./ansible/ssh/gencloud.pub"
+    ssh_authorized_key_file = "./ansible/ssh/gencloud"
   }
 }
