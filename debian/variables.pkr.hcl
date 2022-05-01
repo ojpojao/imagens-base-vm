@@ -7,7 +7,7 @@ variables {
   headless               = true
   boot_wait              = "10s"
   cpus                   = 2
-  memory                 = 2048
+  memory                 = 8192
   post_cpus              = 1
   post_memory            = 1024
   http_directory         = "http"
