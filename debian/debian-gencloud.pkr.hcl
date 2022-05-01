@@ -43,6 +43,6 @@ build {
       "ANSIBLE_SSH_ARGS='-o ControlMaster=no -o ControlPersist=180s -o ServerAliveInterval=120s -o TCPKeepAlive=yes'"
       
     ]
-//    extra_arguments = [ "-vvv" ]
+    extra_arguments = [ "-vvv" ]
   }
 }
