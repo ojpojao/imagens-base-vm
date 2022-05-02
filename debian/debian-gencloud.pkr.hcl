@@ -48,6 +48,6 @@ build {
       "-e", "ansible_ssh_private_key_file=./ansible/ssh/gencloud"
     ]
     ansible_ssh_extra_args = [ "IdentitiesOnly=no" ]
-    ssh_host_key_file = "./ansible/ssh/gencloud.pub"
+//    ssh_host_key_file = "./ansible/ssh/gencloud.pub"
   }
 }
