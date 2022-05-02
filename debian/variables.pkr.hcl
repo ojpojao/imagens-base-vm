@@ -30,7 +30,7 @@ variables {
 
   ]
   gencloud_disk_size         = "3G"
-  gencloud_ssh_username      = "root"
+  gencloud_ssh_username      = "debian"
   gencloud_ssh_password      = "debian"
   gencloud_boot_wait_ppc64le = "8s"
 }
