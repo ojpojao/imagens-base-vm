@@ -40,7 +40,7 @@ build {
       "ANSIBLE_PIPELINING=True",
       "ANSIBLE_REMOTE_TEMP=/tmp",
       "ANSIBLE_HOST_KEY_CHECKING=False",
-      "ANSIBLE_SSH_ARGS='-o ControlMaster=no -o ControlPersist=180s -o PasswordAuthentication=yes -o IdentityFile="/tmp/ansible-key073995662" -o ServerAliveInterval=120s -o TCPKeepAlive=yes'"
+      "ANSIBLE_SSH_ARGS='-o ControlMaster=no -o ControlPersist=180s -o PasswordAuthentication=yes -o IdentityFile=/tmp/ansible-key073995662 -o ServerAliveInterval=120s -o TCPKeepAlive=yes'"
       
     ]
     extra_arguments = [
