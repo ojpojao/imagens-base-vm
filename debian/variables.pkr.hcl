@@ -4,7 +4,7 @@ variables {
   //
   iso_url_8_x86_64       = "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.3.0-amd64-netinst.iso"
   iso_checksum_8_x86_64  = "file:https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/SHA512SUMS"
-  headless               = true
+  headless               = false
   boot_wait              = "10s"
   cpus                   = 2
   memory                 = 2048
