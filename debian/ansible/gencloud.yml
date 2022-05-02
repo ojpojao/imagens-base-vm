@@ -2,8 +2,7 @@
 ---
 - name: Debian Generic Cloud by ojpojao - iON Telecom
   hosts: default
-  become: yes
-  # become_method: su
+  become: true
   roles:
     - gencloud_guest
     - cleanup_vm
