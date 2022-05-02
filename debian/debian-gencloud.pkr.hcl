@@ -44,7 +44,7 @@ build {
       
     ]
     extra_arguments = [
-      "-vvv",
+      "-v",
       "-e", "ansible_ssh_private_key_file=./ansible/ssh/gencloud"
     ]
 //    ansible_ssh_extra_args = [ "IdentitiesOnly=no" ] //
