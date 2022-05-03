@@ -20,17 +20,15 @@ variables {
   gencloud_boot_command_8_x86_64 = [
     "<tab>",
     "<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><wait>",
-//    " net.ifnames=0",
-//    " biosdevname=0",
     " auto-install/enable=true",
     " debconf/priority=critical",
     " preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg<wait>",
-    " -- <wait>",
+    " --- <wait>",
     "<enter><wait>"
 
   ]
   gencloud_disk_size         = "3G"
-  gencloud_ssh_username      = "debian"
+  gencloud_ssh_username      = "root"
   gencloud_ssh_password      = "debian"
   gencloud_boot_wait_ppc64le = "8s"
 }

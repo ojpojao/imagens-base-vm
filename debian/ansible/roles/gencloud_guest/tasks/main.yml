@@ -37,6 +37,14 @@
     group: root
     mode: 0644
 
+- name: Configure /etc/ssh/sshd_config
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+
 - name: Configure /etc/network/interfaces
   copy:
     src: interfaces

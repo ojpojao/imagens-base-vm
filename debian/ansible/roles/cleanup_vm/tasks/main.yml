@@ -34,6 +34,7 @@
 
 - name: Truncate files
   command: "truncate -s 0 {{ item }}"
+  ignore_errors: yes
   loop:
     - /etc/machine-id
     - /etc/resolv.conf
@@ -48,6 +49,7 @@
     - /var/log/spooler
 
 - name: Remove log folders.
+  ignore_errors: yes
   file:
     path: "{{ item }}"
     state: absent
@@ -66,17 +68,20 @@
   register: log_files
 
 - name: Remove log files
+  ignore_errors: yes
   file:
     path: "{{ item.path }}"
     state: absent
   loop: "{{ log_files.files }}"
 
 - name: Remove random-seed
+  ignore_errors: yes
   file:
     path: /var/lib/systemd/random-seed
     state: absent
 
 - name: Disable root SSH login via password
+  ignore_errors: yes
   file:
     path: /etc/ssh/sshd_config.d/01-permitrootlogin.conf
     state: absent
@@ -113,4 +118,5 @@
   command: sync
 
 - name: Clear shell history
+  ignore_errors: yes
   shell: history -c

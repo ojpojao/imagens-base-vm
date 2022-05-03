@@ -6,7 +6,6 @@ source "qemu" "debian-11-gencloud-x86_64" {
   http_directory     = var.http_directory
   ssh_username       = var.gencloud_ssh_username
   ssh_password       = var.gencloud_ssh_password
-  # ssh_clear_authorized_keys = true
   ssh_timeout        = var.ssh_timeout
   cpus               = var.cpus
   disk_interface     = "virtio-scsi"
@@ -40,12 +39,11 @@ build {
       "ANSIBLE_PIPELINING=True",
       "ANSIBLE_REMOTE_TEMP=/tmp",
       "ANSIBLE_HOST_KEY_CHECKING=False",
-      "ANSIBLE_SSH_ARGS='-o ControlMaster=no -o ControlPersist=180s -o PasswordAuthentication=yes -o IdentityFile=/tmp/ansible-key073995662 -o ServerAliveInterval=120s -o TCPKeepAlive=yes'"
+      "ANSIBLE_SSH_ARGS='-o ControlMaster=no -o ControlPersist=180s -o PasswordAuthentication=yes -o ServerAliveInterval=120s -o TCPKeepAlive=yes'"
       
     ]
     extra_arguments = [
-      "-v",
-      "-e", "ansible_ssh_private_key_file=./ansible/ssh/gencloud"
+      "-v"
     ]
   }
 }
