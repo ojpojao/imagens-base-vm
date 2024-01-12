@@ -4,8 +4,8 @@
 - name: Install additional software
   apt:
     name:
-      - cockpit-system
-      - cockpit-ws
+      # - cockpit-system
+      # - cockpit-ws
       - gdisk
       - libnfs-utils
       - rsync
