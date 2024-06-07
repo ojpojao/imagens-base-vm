@@ -1,8 +1,9 @@
+## https://github.com/AlmaLinux/cloud-images/tree/main/ansible
 # An Ansible playbook that configures a Generic Cloud (OpenStack) image
 ---
-- name: Debian Generic Cloud by ojpojao - iON Telecom
+- name: "Debian Generic Cloud by ojpojao"
   hosts: default
-  become: true
+
   roles:
     - gencloud_guest
     - cleanup_vm

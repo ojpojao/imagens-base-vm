@@ -1,0 +1,87 @@
+#cloud-config
+# vim: syntax=yaml
+# allow change hostname when false
+preserve_hostname: false
+# change hostname
+hostname: debian
+# setup /etc/hosts
+manage_etc_hosts: true
+disable_root: true
+apt_preserve_sources_list: true
+
+# The modules that run in the 'init' stage
+cloud_init_modules:
+  - migrator
+  - seed_random
+  - bootcmd
+  - write-files
+  - growpart
+  - resizefs
+  - disk_setup
+  - mounts
+  - set_hostname
+  - update_hostname
+  - update_etc_hosts
+  - ca-certs
+  - rsyslog
+  - users-groups
+  - ssh
+
+cloud_config_modules:
+# Emit the cloud config ready event
+# this can be used by upstart jobs for 'start on cloud-config'.
+  - emit_upstart
+  - ssh-import-id
+  - locale
+  - set-passwords
+  - grub-dpkg
+  - apt-pipelining
+  - apt-configure
+  - ntp
+  - timezone
+  - disable-ec2-metadata
+  - runcmd
+
+# The modules that run in the 'final' stage
+cloud_final_modules:
+  - package-update-upgrade-install
+  - fan
+  - mcollective
+  - scripts-vendor
+  - scripts-per-once
+  - scripts-per-boot
+  - scripts-per-instance
+  - scripts-user
+  - ssh-authkey-fingerprints
+  - keys-to-console
+  - final-message
+  - power-state-change
+
+# A set of users which may be applied and/or used by various modules
+# when a 'default' entry is found it will reference the 'default_user'
+# from the distro configuration specified below
+users:
+  - name: debian
+    gecos: debian
+    groups: [adm, audio, cdrom, dialout, dip, floppy, netdev, plugdev, sudo, video]
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    shell: /bin/bash
+    lock_passwd: false
+    # mkpasswd --method=SHA-512 --rounds=4096; type output in 'passwd'
+    passwd: $6$rounds=4096$7dLBCjCqT/8UZ/M7$VUcuqJHGOOEeQ9K2iB/iMkvxBVNCoaHDT/Oh7Z63NQRIbSTbHMtC4a3nz4oQgyxHUoW18okH5LreeN05GtQu20
+    chpasswd: {expire: True}
+    ssh_pwauth: True
+    ssh_authorized_keys:
+      # colocar as suas chaves aqui
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILj0ENUGzmdHyM2ZhjznLvSeORSieiQSr23Ze+MX/hDo teste-virt-install
+    # Other config here will be given to the distro class and/or path classes
+    paths:
+      cloud_dir: /var/lib/cloud/
+      templates_dir: /etc/cloud/templates/
+      upstart_dir: /etc/init/
+    package_mirrors:
+      - arches: [default]
+        failsafe:
+          primary: http://deb.debian.org/debian
+          security: http://security.debian.org/
+    ssh_svcname: ssh

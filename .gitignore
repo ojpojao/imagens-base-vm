@@ -1,3 +1,2 @@
-# remover pasta de imagens prontas
-*/output*
-*/*/*collections*
+output
+output/**/**
