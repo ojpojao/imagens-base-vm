@@ -60,6 +60,12 @@
 - name: Update /boot/grub/grub.cfg
   ansible.builtin.shell: grub-mkconfig -o /boot/grub/grub.cfg
 
+- name: Enable serial console
+  ansible.builtin.systemd_service:
+    name: serial-getty@ttyS0
+    state: started
+    enabled: true
+
 - name: Disable consistent network device naming
   ansible.builtin.file:
     src: /dev/null
