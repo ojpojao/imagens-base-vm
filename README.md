@@ -15,7 +15,7 @@ No momento, estes são os sistemas suportados pelos templates:
 - ansible
 - fedora 40 -> validado somente aqui
 
-## Instalando pré-requisitos e configurando backend de virtualização
+## Instalando pré-requisitos
 ###
 ```bash
 # instala os pacotes
@@ -23,6 +23,7 @@ sudo dnf install \
     ansible \
     make \
     qemu \
+    git \
     unzip
 ```
 
@@ -110,7 +111,7 @@ qemu-system-x86_64 \
     -nographic
 ```
 
-#### Logand na VM
+#### Logando na VM
 ```bash
 # usuario: debian; senha: passwd - como configurado nos arquivos do cloud-init
 SeaBIOS (version 1.16.3-2.fc40)
